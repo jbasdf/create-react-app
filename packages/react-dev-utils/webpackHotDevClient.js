@@ -57,11 +57,16 @@ if (module.hot && typeof module.hot.dispose === 'function') {
   });
 }
 
+let hostname;
+if (process.env.APP_ROOT_DOMAIN) {
+  hostname = process.env.APP_SUBDOMAIN + '.' + process.env.APP_ROOT_DOMAIN
+}
+
 // Connect to WebpackDevServer via a socket.
 var connection = new SockJS(
   url.format({
     protocol: window.location.protocol,
-    hostname: window.location.hostname,
+    hostname: hostname || window.location.hostname,
     port: window.location.port,
     // Hardcoded in WebpackDevServer
     pathname: '/sockjs-node',
