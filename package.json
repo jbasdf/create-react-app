@@ -1,4 +1,6 @@
 {
+  "name": "aj-create-react-app",
+  "description": "Atomic Jolt verion of create react app",
   "private": true,
   "workspaces": [
     "packages/*"
